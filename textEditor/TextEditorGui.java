@@ -663,9 +663,6 @@ public class TextEditorGui extends JPanel implements ActionListener, ItemListene
 		titleFields = "";
 		creditFields = "";
 	}
-
-	
-
 	
 
 	/**

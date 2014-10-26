@@ -4,6 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -20,7 +23,7 @@ import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 import vamix.Download;
 
-public class PlayerGui extends JPanel implements ActionListener, ChangeListener {
+public class PlayerGui extends JPanel implements ActionListener, ChangeListener /*MouseListener*/ {
 
 	private static final long serialVersionUID = 1L;
 	private final EmbeddedMediaPlayerComponent mediaPlayerComponent;
@@ -33,6 +36,8 @@ public class PlayerGui extends JPanel implements ActionListener, ChangeListener 
 	public static JButton muteBtn = new JButton();
 	public static JLabel timeDisplay = new JLabel("00:00:00");
 	private JSlider volume = new JSlider(JSlider.HORIZONTAL, 0, 200, 100);
+	public static JSlider videoTimeline;
+	public final static int maxTime = 10000;
 
 	public ImageIcon forwardIcon;
 	public ImageIcon backwardIcon;
@@ -102,6 +107,33 @@ public class PlayerGui extends JPanel implements ActionListener, ChangeListener 
 		mediaPlayerComponent.setPreferredSize(new Dimension(525, 400));
 		video = mediaPlayerComponent.getMediaPlayer();
 
+		//Set the time line
+		videoTimeline.setValue(0);
+		videoTimeline.setMinimum(0);
+		videoTimeline.setMaximum(maxTime);
+		videoTimeline.setEnabled(false);
+		
+		videoTimeline.addMouseListener(new MouseAdapter(){
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				//setSliderBasedPosition();
+//				if (isPlaying){
+//					play();
+//					isPlaying = false;
+//				}
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+//				if (mediaPlayer.isPlaying()){
+//					pause();
+//					isPlaying = true;
+//				}
+				//setSliderBasedPosition();
+			}
+		});
+		
 		//Add all the components to panels
 		JPanel timeBar = new JPanel();
 		//TODO add a time line class and add it to this panel
@@ -158,6 +190,7 @@ public class PlayerGui extends JPanel implements ActionListener, ChangeListener 
 			}
 		}
 	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {

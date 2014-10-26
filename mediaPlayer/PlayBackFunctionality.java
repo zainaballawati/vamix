@@ -140,7 +140,8 @@ public class PlayBackFunctionality {
 							String formatedTime = df.format(new Date(time));	
 							if (time < video.getLength()) {
 								PlayerGui.timeDisplay.setText(formatedTime);
-
+								PlayerGui.videoTimeline.setValue(PlayerGui.maxTime);
+								
 							} else {
 								PlayerGui.playBtn.setIcon(PlayerGui.playIcon);
 							}

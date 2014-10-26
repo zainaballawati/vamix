@@ -10,6 +10,11 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
+import textEditor.TextEditorGui;
+import videoManipulator.VideoGui;
+
+import audioManipulator.AudioGui;
+
 /**
  * SoftEng206 Project- Main Vamix Player class
  * @author Chahat Chawla and Zainab Al Lawati
@@ -49,9 +54,9 @@ public class VamixFrame {
 	public static JFrame frame;
 	
 	public static JTabbedPane tabbedPane;
-	public static AudioManipulator audioMan;
-	public static TextEditor textEdit;
-	public static VideoEdit videoEdit;
+	public static AudioGui audioMan;
+	public static TextEditorGui textEdit;
+	public static VideoGui videoEdit;
 
 
 	/*
@@ -63,12 +68,12 @@ public class VamixFrame {
 
 		tabbedPane = new JTabbedPane();
 		tabbedPane.setPreferredSize(new Dimension(525, 440));
-		audioMan = new AudioManipulator();
+		audioMan = new AudioGui();
 		tabbedPane.add("Audio Manipulator", audioMan);
-		textEdit = new TextEditor();
+		textEdit = new TextEditorGui();
 		tabbedPane.add("Text Editor", textEdit);
 		//Create the video manipulating tab pane
-		videoEdit = new VideoEdit();
+		videoEdit = new VideoGui();
 		tabbedPane.add("Video Manipulator", videoEdit);
 		//Disable the tabs when first loading the main window
 		tabbedPane.setEnabled(false);

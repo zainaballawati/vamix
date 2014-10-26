@@ -428,7 +428,7 @@ ActionListener {
 	 * @param state
 	 */
 
-	protected void enableAudioMan(boolean state) {
+	public void enableAudioMan(boolean state) {
 		removeCheck.setEnabled(state);
 		extractCheck.setEnabled(state);
 		addCheck.setEnabled(state);
@@ -440,7 +440,7 @@ ActionListener {
 	 * the input file is an audio file)
 	 */
 
-	protected void enableExtractOnly() {
+	public void enableExtractOnly() {
 		removeCheck.setEnabled(false);
 		extractCheck.setEnabled(true);
 		addCheck.setEnabled(false);
