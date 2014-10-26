@@ -156,6 +156,9 @@ public class TextEditor extends JPanel implements ActionListener, ItemListener {
 		// textFields to the panel
 		add(textEditorLabel);
 		add(separator);
+		add(screenList);
+		add(durationLabel);
+		add(addDuration);
 		add(backgroundImageLabel);
 		add(separator3);
 		add(overlayCheck);
@@ -164,9 +167,6 @@ public class TextEditor extends JPanel implements ActionListener, ItemListener {
 		add(addTimeFrame);
 		add(separator4);
 		add(screenLabel);
-		add(screenList);
-		add(durationLabel);
-		add(addDuration);
 		add(separator2);
 		add(addTextLabel);
 		add(wordLimitLabel);
